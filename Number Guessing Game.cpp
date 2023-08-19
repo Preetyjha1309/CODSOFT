@@ -1,29 +1,35 @@
-#include <iostream>
-#include <cstdlib>
-#include <ctime>
+#include<iostream>
+#include<cstdlib>
 using namespace std;
-
 int main()
 {
-    int num, guess, tries = 0;
-    srand(time(0)); // seed random number generator
-    num = rand() % 100 + 1; // random number between 1 and 100
-    cout << "Guess My Number Game\n\n";
-
-    do
-    {
-        cout << "Enter a guess between 1 and 100: ";
-        cin >> guess;
-        tries++;
-
-        if (guess > num)
-            cout << "Too high!\n\n";
-        else if (guess < num)
-            cout << "Too low!\n\n";
-        else
-            cout << "\nCorrect! You got it in " << tries << " guesses!\n";
-    } while (guess != num);
-
-    return 0;
+	string name;
+	char input;
+	int inputuser;
+	int score;
+	cout<<"Enter your name    ";
+	getline(cin,name);
+	cout<<endl;
+	do
+	{
+		srand(0);
+		int variable=rand()%5+1;
+		cout<<"Enter any number in between range 1 to 5    ";
+		cin>>inputuser;
+		cout<<endl;
+		if(inputuser==variable)
+		{
+			cout<<"congratulations ! You guessed the corrrect number "<<endl;
+			score++;
+		}
+		else
+		{
+			cout<<"sorry, You guessed wrong number Try again"<<endl;
+		}
+		cout<<"Would you like to try again Y/N     ";
+		cin>>input;
+		cout<<endl;
+	}while(input!='N');
+	cout<<"Your score is         "<<score<<endl;
+	cout<<"Game end "<<endl;
 }
-
